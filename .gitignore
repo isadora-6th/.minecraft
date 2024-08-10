@@ -4,6 +4,7 @@
 !.gitignore
 !UpdatePack.ps1
 !Usage.png
+!PackChoose.webp
 !config/
 !config/invmove.json
 !config/inventoryprofilesnext/
