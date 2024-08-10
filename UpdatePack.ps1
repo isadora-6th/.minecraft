@@ -27,4 +27,4 @@ foreach($mod in $ModsList){
     DownloadIfRequired -FileName $mod
 }
 
-Read-Host -Prompt "Press Enter to exit (all done Вы восхитительны)"
+Read-Host -Prompt "Press Enter to exit (Вы восхитительны)"
