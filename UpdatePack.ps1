@@ -27,7 +27,4 @@ foreach($mod in $ModsList){
     DownloadIfRequired -FileName $mod
 }
 
-Write-Host "All ok -> exiting in 5 sec"
-Start-Sleep -Seconds 5
-
-Write-Host "Done."
+Read-Host -Prompt "Press Enter to exit (all done Вы восхитительны)"
