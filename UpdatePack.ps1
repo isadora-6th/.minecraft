@@ -27,3 +27,5 @@ foreach($mod in $ModsList){
     DownloadIfRequired -FileName $mod
 }
 
+Write-Host "All ok exiting, THX LOL"
+Start-Sleep -Seconds 5
