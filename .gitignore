@@ -1,0 +1,5 @@
+*
+!mods
+!mods/*
+!.gitignore
+!UpdatePack.ps1
