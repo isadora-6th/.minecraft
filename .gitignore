@@ -4,3 +4,7 @@
 !.gitignore
 !UpdatePack.ps1
 !Usage.png
+!config/
+!config/invmove.json
+!config/inventoryprofilesnext/
+!config/inventoryprofilesnext/inventoryprofiles.json
