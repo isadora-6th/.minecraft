@@ -47,7 +47,7 @@ $ModsList = "appleskin-fabric-mc1.21-3.0.5.jar",
 
 $RemoveModsList = "fabric-api-0.100.4+1.21.jar"
 
-$ConfigList = "inventoryprofilesnext/inventoryprofiles.json", "invmove.json", "boathud-nfs.json"
+$ConfigList = "inventoryprofilesnext/inventoryprofiles.json", "invmove.json", "boathud-nfs.json", "iris.properties"
 function DownloadIfRequired {
     param (
         $FileName
