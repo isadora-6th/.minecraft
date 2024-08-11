@@ -96,6 +96,13 @@ foreach($mod in $ModsList){
 
 RemoveIfRequired -FileName $RemoveModsList
 
+
+$SpecialConfigDir = $(Get-Location).Path+$ConfigsDir+"inventoryprofilesnext"
+If(!(Test-Path -PathType container $SpecialConfigDir))
+{
+      New-Item -ItemType Directory -Path $SpecialConfigDir
+}
+
 foreach($config in $ConfigList){
     DownloadConfigIfRequired -FileName $config
 }
