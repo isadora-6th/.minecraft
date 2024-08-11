@@ -1,5 +1,5 @@
 Set-Location $env:APPDATA\.minecraft
-$BaseUrl = "https://github.com/isadora-6th/.minecraft/raw/main/mods/"
+$BaseUrl = "https://github.com/isadora-6th/.minecraft/raw/main/"
 $ModsDir = "/mods/"
 $ConfigsDir = "/config/"
 
@@ -58,7 +58,7 @@ function DownloadIfRequired {
         return
     }   
 
-    Invoke-WebRequest $BaseUrl$FileName -OutFile $LocalMod
+    Invoke-WebRequest $BaseUrl$ModsDir$FileName -OutFile $LocalMod
     Write-Host "File '$FileName', downloaded" -ForegroundColor Yellow
 }
 
@@ -81,8 +81,7 @@ function DownloadConfigIfRequired {
     if (Test-Path -Path $LocalConfig) {
         Write-Host "Skipping file '$FileName', already downloaded" -ForegroundColor White
         return
-    }   
-
+    }
     Invoke-WebRequest $BaseUrl$ConfigsDir$FileName -OutFile $LocalConfig
     Write-Host "File '$FileName', downloaded" -ForegroundColor Yellow
 }
