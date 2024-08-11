@@ -5,6 +5,8 @@ $ConfigsDir = "/config/"
 
 $ModsList = "appleskin-fabric-mc1.21-3.0.5.jar",
             "architectury-13.0.6-fabric.jar",
+            "better-boat-movement-2.2.0-1.21.jar",
+            "boathud-nfs-1.1.0.jar",
             "chesttracker-2.4.10+1.21.jar",
             "cloth-config-15.0.128-fabric.jar",
             "configured-fabric-1.21-2.5.0.jar",
@@ -16,6 +18,7 @@ $ModsList = "appleskin-fabric-mc1.21-3.0.5.jar",
             "fabric-api-0.102.0+1.21.jar",
             "fabric-language-kotlin-1.12.0+kotlin.2.0.10.jar",
             "FallingTree-1.21-1.21.0.7.jar",
+            "fishing_ruler-1.0.5-mc1.21.jar",
             "FoodEffectTooltips-1.1.1-1.21.jar",
             "formations-1.0.2-fabric-mc1.21.jar",
             "formationsnether-1.0.5.jar",
@@ -39,11 +42,12 @@ $ModsList = "appleskin-fabric-mc1.21-3.0.5.jar",
             "sodium-extra-0.5.7+mc1.21.jar",
             "sodium-fabric-0.5.11+mc1.21.jar",
             "supermartijn642configlib-1.1.8-fabric-mc1.21.jar",
+            "xplus-autofish-1.2.0-fabric-1.21.jar",
             "YetAnotherConfigLib-3.5.0+1.21-fabric.jar"
 
 $RemoveModsList = "fabric-api-0.100.4+1.21.jar"
 
-$ConfigList = "inventoryprofilesnext/inventoryprofiles.json", "invmove.json"
+$ConfigList = "inventoryprofilesnext/inventoryprofiles.json", "invmove.json", "boathud-nfs.json"
 function DownloadIfRequired {
     param (
         $FileName
