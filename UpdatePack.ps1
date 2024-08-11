@@ -87,6 +87,10 @@ function DownloadConfigIfRequired {
     Write-Host "File '$FileName', downloaded" -ForegroundColor Yellow
 }
 
+function UpdateKeybinds {
+    (Get-Content "options.txt").Replace('key_iris.keybind.reload:key.keyboard.r', 'key_iris.keybind.reload:key.keyboard.unknown').Replace('key_iris.keybind.toggleShaders:key.keyboard.k', 'key_iris.keybind.toggleShaders:key.keyboard.unknown').Replace('key_iris.keybind.shaderPackSelection:key.keyboard.o', 'key_iris.keybind.shaderPackSelection:key.keyboard.unknown') | Set-Content "options.txt"
+}
+
 foreach($mod in $ModsList){
     DownloadIfRequired -FileName $mod
 }
@@ -96,5 +100,7 @@ RemoveIfRequired -FileName $RemoveModsList
 foreach($config in $ConfigList){
     DownloadConfigIfRequired -FileName $config
 }
+
+UpdateKeybinds
 
 Read-Host -Prompt "Press Enter to exit (Вы восхитительны)"
