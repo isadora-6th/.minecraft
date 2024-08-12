@@ -11,9 +11,6 @@
             "value": false
         },
         "enable_lock_slots_per_server": false,
-        "enable_auto_refill": {
-            "value": false
-        },
         "enable_updates_check": false,
         "highlight_clicking_slot": false,
         "sort_at_cursor": false,
