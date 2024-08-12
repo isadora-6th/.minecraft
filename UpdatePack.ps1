@@ -115,7 +115,7 @@ $RemoveList = $($ModsDir+"fabric-api-0.100.4+1.21.jar"),
               $($ModsDir+"nooks_and_crannies-1.0.0.jar"),
               $($ConfigsDir+"dynamiclights.json"),
               $($ConfigsDir+"sharpness6.json"),
-              $($ConfigsDir+"fallingtree.json"),
+              $($ConfigsDir+"fallingtree.json")
               
 
 $ConfigList = "inventoryprofilesnext/inventoryprofiles.json", 
