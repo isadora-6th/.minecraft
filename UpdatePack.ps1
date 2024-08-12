@@ -126,7 +126,7 @@ function DownloadIfRequired {
         return
     }   
 
-    Invoke-WebRequest $BaseUrl$ModsDir$FileName -OutFile $LocalMod
+    Invoke-WebRequest $BaseUrl$FileName -OutFile $LocalMod
     Write-Host "File '$FileName', downloaded" -ForegroundColor Yellow
 }
 
@@ -145,8 +145,6 @@ function UpdateKeybinds {
     (Get-Content "options.txt").Replace('key_iris.keybind.reload:key.keyboard.r', 'key_iris.keybind.reload:key.keyboard.unknown').Replace('key_iris.keybind.toggleShaders:key.keyboard.k', 'key_iris.keybind.toggleShaders:key.keyboard.unknown').Replace('key_iris.keybind.shaderPackSelection:key.keyboard.o', 'key_iris.keybind.shaderPackSelection:key.keyboard.unknown') | Set-Content "options.txt"
 }
 
-#payload
-
 foreach($file in $RemoveList){
     RemoveIfRequired -FileName $RemoveList
 }
@@ -155,7 +153,6 @@ foreach($mod in $ModsList){
     DownloadIfRequired -FileName $($ModsDir+$mod)
 }
 
-# Create config dir
 $SpecialConfigDir = $(Get-Location).Path+$ConfigsDir+"inventoryprofilesnext"
 If(!(Test-Path -PathType container $SpecialConfigDir))
 {
