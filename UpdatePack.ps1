@@ -119,14 +119,14 @@ $RemoveList = $($ModsDir+"fabric-api-0.100.4+1.21.jar"),
               
 
 $ConfigList = "inventoryprofilesnext/inventoryprofiles.json", 
-                "invmove.json", 
-                "dynamiclights.json",
-                "boathud-nfs.json", 
-                "iris.properties",
-                "axesareweapons.json5",
-                "wheelbarrow.json",
-                "sharpness6.json",
-                "fallingtree.json"
+              "invmove.json", 
+              "dynamiclights.json",
+              "boathud-nfs.json", 
+              "iris.properties",
+              "axesareweapons.json5",
+              "wheelbarrow.json",
+              "sharpness6.json",
+              "fallingtree.json"
 
 function DownloadIfRequired {
     param (
