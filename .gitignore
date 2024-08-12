@@ -8,6 +8,7 @@
 !config/
 !config/axesareweapons.json5
 !config/boathud-nfs.json
+!config/dynamiclights.json
 !config/iris.properties
 !config/invmove.json
 !config/inventoryprofilesnext/

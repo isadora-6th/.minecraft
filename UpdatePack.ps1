@@ -10,7 +10,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "AxesAreWeapons-1.9.1-fabric-1.21.jar",
             "better-boat-movement-2.2.0-1.21.jar",
             "better-mipmaps-0.2-1.21.jar",
-            "betterendcities-vanilla-1.21-fabric.jar",      
+            "betterendcities-vanilla-1.21-fabric.jar",
             "betterstats-3.13-fabric-1.21.jar",
             "boathud-nfs-1.1.0.jar",
             "bound-1.0.jar",
@@ -22,6 +22,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "crabclaws-1.1.1-forge-1.21.jar",
             "craftsman_bows-1.0.0.jar",
             "cristellib-fabric-1.2.7.jar",
+            "dampening-enchantment-1.0.1.jar",
             "default_skill_trees-1.0.jar",
             "dense-flowers-0.1.1-mc1.21.0.jar",
             "dungeons-and-taverns-end-castle-standalone-v1-fabric.jar",
@@ -31,6 +32,8 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "DyeAllTheThings-1.4.1-1.21.jar",
             "dyedbundles-1.0-1.21.jar",
             "dynamiclights-v1.8.3-mc1.17x-1.21x-mod.jar",
+            "eldritch-mobs-1.16.0-1.21.1.jar",
+            "enchantips-1.4.0.jar",
             "Explorify v1.6.1 f10-48.jar",
             "fabric-api-0.102.0+1.21.jar",
             "fabric-language-kotlin-1.12.0+kotlin.2.0.10.jar",
@@ -42,7 +45,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "formations-1.0.2-fabric-mc1.21.jar",
             "formationsnether-1.0.5.jar",
             "formationsoverworld-1.0.4.jar",
-            "Gliscowos-Enchantment-Descriptions-Mod-Fabric-Quilt-1.21.jar",       
+            "Gliscowos-Enchantment-Descriptions-Mod-Fabric-Quilt-1.21.jar",
             "HopoBetterRuinedPortals-1.21-1.4.3.jar",
             "improvedfletching-0.1-1.21.jar",
             "Incantationem-2.0.3-1.21-fabric.jar",
@@ -66,6 +69,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "modmenu-11.0.1.jar",
             "morevanillashields-1.0.1-1.21.jar",
             "moss-ruins-1.23-1.21.jar",
+            "mostructures-fabric-1.5.0-1.21.jar",
             "MouseTweaks-fabric-mc1.21-2.26.jar",
             "mss-1.1.2-1.21-fabric.jar",
             "NE-1.21-1.9.2.jar",
@@ -82,6 +86,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "reinforced-shulker-boxes-3.1.0-1.21.jar",
             "Rex's-AdditionalStructures-1.21-(v.6.0.0).jar",
             "rightclickharvest-fabric-4.3.1+1.21.jar",
+            "sharpness6-1.21-2.jar",
             "ships-3.0.3-1.21.jar",
             "sodium-extra-0.5.7+mc1.21.jar",
             "sodium-fabric-0.5.11+mc1.21.jar",
@@ -89,23 +94,28 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "Structory_1.21_v1.3.5.jar",
             "supermartijn642configlib-1.1.8-fabric-mc1.21.jar",
             "tcdcommons-3.12.3+fabric-1.21.jar",
-            "tl_skin_cape_fabric_1.20.2_1.21-1.35.jar",
+            "telekinesis-3.0.2-1.21.jar",
             "tradablepotions-1.0.1-1.21.1.jar",
+            "TradeEnchantmentDisplay-fabric-1.0.1+1.21.jar",
             "trialrestock-1.0.3-1.21.jar",
             "trimeffects-fabric-1.21-1.3.1.jar",
+            "twirl-0.3.3+1.21.jar",
             "t_and_t-neoforge-fabric-1.13.2.jar",
             "usefulsnowball-1.0.3.5-1.21.jar",
             "wheelbarrow-1.0.2-fabric_1.21.jar",
             "xplus-autofish-1.2.0-fabric-1.21.jar",
+            "xp_storage-1.5.10+1.21.jar",
             "YetAnotherConfigLib-3.5.0+1.21-fabric.jar"
 
-$RemoveModsList = "fabric-api-0.100.4+1.21.jar"
+$RemoveList = $ModsDir+"fabric-api-0.100.4+1.21.jar", $ConfigsDir+"dynamiclights.json"
 
 $ConfigList = "inventoryprofilesnext/inventoryprofiles.json", 
                 "invmove.json", 
+                "dynamiclights.json",
                 "boathud-nfs.json", 
                 "iris.properties",
                 "axesareweapons.json5"
+
 function DownloadIfRequired {
     param (
         $FileName
@@ -124,10 +134,10 @@ function RemoveIfRequired {
     param (
         $FileName
     )
-    $LocalMod = $(Get-Location).Path+$ModsDir+$FileName
-    if (Test-Path -Path $LocalMod) {
+    $LocalFile = $(Get-Location).Path+$FileName
+    if (Test-Path -Path $LocalFile) {
         Write-Host "Removing file '$FileName', conflict" -ForegroundColor White
-        Remove-Item -Path $LocalMod
+        Remove-Item -Path $LocalFile
     }
 }
 
@@ -148,13 +158,17 @@ function UpdateKeybinds {
     (Get-Content "options.txt").Replace('key_iris.keybind.reload:key.keyboard.r', 'key_iris.keybind.reload:key.keyboard.unknown').Replace('key_iris.keybind.toggleShaders:key.keyboard.k', 'key_iris.keybind.toggleShaders:key.keyboard.unknown').Replace('key_iris.keybind.shaderPackSelection:key.keyboard.o', 'key_iris.keybind.shaderPackSelection:key.keyboard.unknown') | Set-Content "options.txt"
 }
 
-foreach($mod in $ModsList){
-    DownloadIfRequired -FileName $mod
+#payload
+
+foreach($file in $RemoveList){
+    RemoveIfRequired -FileName $RemoveList
 }
 
-RemoveIfRequired -FileName $RemoveModsList
+foreach($mod in $ModsList){
+    DownloadIfRequired -FileName $ModsDir+$mod
+}
 
-
+# Create config dir
 $SpecialConfigDir = $(Get-Location).Path+$ConfigsDir+"inventoryprofilesnext"
 If(!(Test-Path -PathType container $SpecialConfigDir))
 {
