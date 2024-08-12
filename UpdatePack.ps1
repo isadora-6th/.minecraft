@@ -107,7 +107,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "xp_storage-1.5.10+1.21.jar",
             "YetAnotherConfigLib-3.5.0+1.21-fabric.jar"
 
-$RemoveList = $ModsDir+"fabric-api-0.100.4+1.21.jar", $ConfigsDir+"dynamiclights.json"
+$RemoveList = $($ModsDir+"fabric-api-0.100.4+1.21.jar"), $($ConfigsDir+"dynamiclights.json")
 
 $ConfigList = "inventoryprofilesnext/inventoryprofiles.json", 
                 "invmove.json", 
@@ -146,7 +146,7 @@ function UpdateKeybinds {
 }
 
 foreach($file in $RemoveList){
-    RemoveIfRequired -FileName $RemoveList
+    RemoveIfRequired -FileName $file
 }
 
 foreach($mod in $ModsList){
