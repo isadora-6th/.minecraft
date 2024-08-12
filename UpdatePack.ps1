@@ -120,7 +120,7 @@ function DownloadIfRequired {
     param (
         $FileName
     )
-    $LocalMod = $(Get-Location).Path+$ModsDir+$FileName
+    $LocalMod = $(Get-Location).Path+$FileName
     if (Test-Path -Path $LocalMod) {
         Write-Host "Skipping file '$FileName', already downloaded" -ForegroundColor White
         return
@@ -141,19 +141,6 @@ function RemoveIfRequired {
     }
 }
 
-function DownloadConfigIfRequired {
-    param (
-        $FileName
-    )
-    $LocalConfig = $(Get-Location).Path+$ConfigsDir+$FileName
-    if (Test-Path -Path $LocalConfig) {
-        Write-Host "Skipping file '$FileName', already downloaded" -ForegroundColor White
-        return
-    }
-    Invoke-WebRequest $BaseUrl$ConfigsDir$FileName -OutFile $LocalConfig
-    Write-Host "File '$FileName', downloaded" -ForegroundColor Yellow
-}
-
 function UpdateKeybinds {
     (Get-Content "options.txt").Replace('key_iris.keybind.reload:key.keyboard.r', 'key_iris.keybind.reload:key.keyboard.unknown').Replace('key_iris.keybind.toggleShaders:key.keyboard.k', 'key_iris.keybind.toggleShaders:key.keyboard.unknown').Replace('key_iris.keybind.shaderPackSelection:key.keyboard.o', 'key_iris.keybind.shaderPackSelection:key.keyboard.unknown') | Set-Content "options.txt"
 }
@@ -165,7 +152,7 @@ foreach($file in $RemoveList){
 }
 
 foreach($mod in $ModsList){
-    DownloadIfRequired -FileName $ModsDir+$mod
+    DownloadIfRequired -FileName $($ModsDir+$mod)
 }
 
 # Create config dir
@@ -176,7 +163,7 @@ If(!(Test-Path -PathType container $SpecialConfigDir))
 }
 
 foreach($config in $ConfigList){
-    DownloadConfigIfRequired -FileName $config
+    DownloadIfRequired -FileName $($ConfigsDir+$config)
 }
 
 UpdateKeybinds
