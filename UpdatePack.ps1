@@ -98,7 +98,6 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "supermartijn642configlib-1.1.8-fabric-mc1.21.jar",
             "tcdcommons-3.12.3+fabric-1.21.jar",
             "telekinesis-3.0.2-1.21.jar",
-            "tl_skin_cape_fabric_1.20.2_1.21-1.35.jar",
             "tradablepotions-1.0.1-1.21.1.jar",
             "TradeEnchantmentDisplay-fabric-1.0.1+1.21.jar",
             "trialrestock-1.0.3-1.21.jar",
@@ -111,8 +110,9 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "xp_storage-1.5.10+1.21.jar",
             "YetAnotherConfigLib-3.5.0+1.21-fabric.jar"
 
-$RemoveList = $($ModsDir+"fabric-api-0.100.4+1.21.jar"), $($ModsDir+"nooks_and_crannies-1.0.0.jar"), $($ConfigsDir+"dynamiclights.json"), $($ConfigsDir+"sharpness6.json"), $($ConfigsDir+"fallingtree.json")
-              
+$RemoveListMods = "fabric-api-0.100.4+1.21.jar", "nooks_and_crannies-1.0.0.jar"
+
+$RemoveListConfigs = "dynamiclights.json","sharpness6.json","fallingtree.json"
 
 $ConfigList = "inventoryprofilesnext/inventoryprofiles.json", 
               "invmove.json", 
@@ -152,25 +152,21 @@ function RemoveIfRequired {
 function UpdateKeybinds {
     (Get-Content "options.txt").Replace('key_iris.keybind.reload:key.keyboard.r', 'key_iris.keybind.reload:key.keyboard.unknown').Replace('key_iris.keybind.toggleShaders:key.keyboard.k', 'key_iris.keybind.toggleShaders:key.keyboard.unknown').Replace('key_iris.keybind.shaderPackSelection:key.keyboard.o', 'key_iris.keybind.shaderPackSelection:key.keyboard.unknown') | Set-Content "options.txt"
 }
-
-foreach($file in $RemoveList){
-    RemoveIfRequired -FileName $file
+function CreateRequiredDirs {
+    $SpecialConfigDir = $(Get-Location).Path+$ConfigsDir+"inventoryprofilesnext"
+    If(!(Test-Path -PathType container $SpecialConfigDir))
+    {
+          New-Item -ItemType Directory -Path $SpecialConfigDir
+    }
 }
 
-foreach($mod in $ModsList){
-    DownloadIfRequired -FileName $($ModsDir+$mod)
-}
-
-$SpecialConfigDir = $(Get-Location).Path+$ConfigsDir+"inventoryprofilesnext"
-If(!(Test-Path -PathType container $SpecialConfigDir))
-{
-      New-Item -ItemType Directory -Path $SpecialConfigDir
-}
-
-foreach($config in $ConfigList){
-    DownloadIfRequired -FileName $($ConfigsDir+$config)
-}
-
+CreateRequiredDirs
 UpdateKeybinds
+
+foreach($mod in $RemoveListMods){ RemoveIfRequired -FileName $($ModsDir+$mod) }
+foreach($config in $RemoveListConfigs){ RemoveIfRequired -FileName $($ConfigsDir+$config) }
+
+foreach($mod in $ModsList){ DownloadIfRequired -FileName $($ModsDir+$mod) }
+foreach($config in $ConfigList){ DownloadIfRequired -FileName $($ConfigsDir+$config) }
 
 Read-Host -Prompt "Press Enter to exit (Вы восхитительны)"
