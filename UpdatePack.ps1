@@ -112,8 +112,11 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "YetAnotherConfigLib-3.5.0+1.21-fabric.jar"
 
 $RemoveList = $($ModsDir+"fabric-api-0.100.4+1.21.jar"), 
-              $($ModsDir+"nooks_and_crannies-1.0.0.jar")
-#             $($ConfigsDir+"dynamiclights.json"),
+              $($ModsDir+"nooks_and_crannies-1.0.0.jar"),
+              $($ConfigsDir+"dynamiclights.json"),
+              $($ConfigsDir+"sharpness6.json"),
+              $($ConfigsDir+"fallingtree.json"),
+              
 
 $ConfigList = "inventoryprofilesnext/inventoryprofiles.json", 
                 "invmove.json", 
@@ -121,7 +124,9 @@ $ConfigList = "inventoryprofilesnext/inventoryprofiles.json",
                 "boathud-nfs.json", 
                 "iris.properties",
                 "axesareweapons.json5",
-                "wheelbarrow.json"
+                "wheelbarrow.json",
+                "sharpness6.json",
+                "fallingtree.json"
 
 function DownloadIfRequired {
     param (
@@ -143,7 +148,7 @@ function RemoveIfRequired {
     )
     $LocalFile = $(Get-Location).Path+$FileName
     if (Test-Path -Path $LocalFile) {
-        Write-Host "Removing file '$FileName', conflict" -ForegroundColor White
+        Write-Host "Removing file '$FileName', (to update)" -ForegroundColor Green
         Remove-Item -Path $LocalFile
     }
 }
