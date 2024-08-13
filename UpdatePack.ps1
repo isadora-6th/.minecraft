@@ -110,7 +110,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "xp_storage-1.5.10+1.21.jar",
             "YetAnotherConfigLib-3.5.0+1.21-fabric.jar"
 
-$RemoveListMods = "fabric-api-0.100.4+1.21.jar", "nooks_and_crannies-1.0.0.jar"
+$RemoveListMods = "fabric-api-0.100.4+1.21.jar", "nooks_and_crannies-1.0.0.jar", "enchantips-1.4.0.jar"
 
 $RemoveListConfigs = "dynamiclights.json","sharpness6.json","fallingtree.json"
 
