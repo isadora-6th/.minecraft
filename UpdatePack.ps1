@@ -53,7 +53,6 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "Explorify v1.6.1 f10-48.jar",
             "fabric-api-0.102.0+1.21.jar",
             "fabric-language-kotlin-1.12.0+kotlin.2.0.10.jar",
-            "fabric_medieval_buildings-1.0.2-1.21.jar",
             "fabric_medieval_buildings-1.0.2-1.21_1.jar",
             "fabric_medieval_buildings_end_edition-1.0.2-1.21.jar",
             "FallingTree-1.21-1.21.0.7.jar",
@@ -148,6 +147,7 @@ $RemoveListMods = "fabric-api-0.100.4+1.21.jar",
                   "enchantips-1.4.0.jar", 
                   "crabclaws-1.1.1-forge-1.21.jar",
                   "HopoBetterRuinedPortals-[1.21]-1.4.3.jar",
+                  "fabric_medieval_buildings-1.0.2-1.21.jar",
                   "Philips-Ruins1.21-1.3.jar"
 
 $RemoveListConfigs = "dynamiclights.json","sharpness6.json","fallingtree.json"
