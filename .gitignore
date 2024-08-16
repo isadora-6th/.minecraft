@@ -14,5 +14,7 @@
 !config/fallingtree.json
 !config/invmove.json
 !config/wheelbarrow.json
+!config/fwaystones
+!config/fwaystones/config.json5
 !config/inventoryprofilesnext/
 !config/inventoryprofilesnext/inventoryprofiles.json
