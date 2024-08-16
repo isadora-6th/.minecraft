@@ -66,7 +66,6 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "Gliscowos-Enchantment-Descriptions-Mod-Fabric-Quilt-1.21.jar",
             "globalxp-fabric-1.21-1.11.1.jar",
             "HopoBetterRuinedPortals-1.21-1.4.3.jar",
-            "HopoBetterRuinedPortals-[1.21]-1.4.3.jar",
             "improvedfletching-0.1-1.21.jar",
             "Incantationem-2.0.3-1.21-fabric.jar",
             "infinity-rework-1.2.0-fabric-1.21.jar",
@@ -145,7 +144,11 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "yggdrasil-structure-1.4.0.jar",
             "zero-times-infinity-1.0.0.jar"
 
-$RemoveListMods = "fabric-api-0.100.4+1.21.jar", "nooks_and_crannies-1.0.0.jar", "enchantips-1.4.0.jar", "crabclaws-1.1.1-forge-1.21.jar"
+$RemoveListMods = "fabric-api-0.100.4+1.21.jar", 
+                  "nooks_and_crannies-1.0.0.jar", 
+                  "enchantips-1.4.0.jar", 
+                  "crabclaws-1.1.1-forge-1.21.jar",
+                  "HopoBetterRuinedPortals-[1.21]-1.4.3.jar"
 
 $RemoveListConfigs = "dynamiclights.json","sharpness6.json","fallingtree.json"
 
