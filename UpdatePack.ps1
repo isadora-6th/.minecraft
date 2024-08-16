@@ -104,7 +104,6 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "OkZoomer-Fabric-9.2.0-1.21-fabric.jar",
             "our-villager-discounts-1.21+build.0-fabric.jar",
             "owo-lib-0.12.10+1.21.jar",
-            "Philips-Ruins1.21-1.3.jar",
             "Philips-Ruins1.21-1.5.jar",
             "PotionMixing-0.1.2-Fabric1.21.jar",
             "puffish_attributes-0.5.0-1.21-fabric.jar",
@@ -148,7 +147,8 @@ $RemoveListMods = "fabric-api-0.100.4+1.21.jar",
                   "nooks_and_crannies-1.0.0.jar", 
                   "enchantips-1.4.0.jar", 
                   "crabclaws-1.1.1-forge-1.21.jar",
-                  "HopoBetterRuinedPortals-[1.21]-1.4.3.jar"
+                  "HopoBetterRuinedPortals-[1.21]-1.4.3.jar",
+                  "Philips-Ruins1.21-1.3.jar"
 
 $RemoveListConfigs = "dynamiclights.json","sharpness6.json","fallingtree.json"
 
