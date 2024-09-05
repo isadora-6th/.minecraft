@@ -22,7 +22,6 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "bundles-brilliance-0.1-v1.21.jar",
             "chesttracker-2.4.10+1.21.jar",
             "cloth-config-15.0.128-fabric.jar",
-            "Communism-1.1.1.jar",
             "compatible-protection-enchantments-1.jar",
             "compatible-sword-enchantments-1.jar",
             "configured-fabric-1.21-2.5.0.jar",
@@ -157,7 +156,8 @@ $RemoveListMods = "fabric-api-0.100.4+1.21.jar",
                   "crabclaws-1.1.1-forge-1.21.jar",
                   "HopoBetterRuinedPortals-[1.21]-1.4.3.jar",
                   "fabric_medieval_buildings-1.0.2-1.21.jar",
-                  "Philips-Ruins1.21-1.3.jar"
+                  "Philips-Ruins1.21-1.3.jar",
+                  "Communism-1.1.1.jar"
 
 $RemoveListConfigs = "dynamiclights.json","sharpness6.json","fallingtree.json"
 
