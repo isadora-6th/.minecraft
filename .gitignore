@@ -1,6 +1,8 @@
 *
 !mods
 !mods/*
+!shaderpacks
+!shaderpacks/*
 !.gitignore
 !UpdatePack.ps1
 !Usage.png

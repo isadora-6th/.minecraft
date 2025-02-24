@@ -2,6 +2,7 @@ Set-Location $env:APPDATA\.minecraft
 $BaseUrl = "https://github.com/isadora-6th/.minecraft/raw/main/"
 $ModsDir = "/mods/"
 $ConfigsDir = "/config/"
+$ShadersDir = "/shaderpacks/"
 
 $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "animal_feeding_trough-1.1.2-1.21.jar",
@@ -21,6 +22,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "breach-swords-0.1.jar",
             "bundles-brilliance-0.1-v1.21.jar",
             "chesttracker-2.4.10+1.21.jar",
+            "cicada-lib-0.10.2+1.21-1.21.1.jar",
             "cloth-config-15.0.128-fabric.jar",
             "compatible-protection-enchantments-1.jar",
             "compatible-sword-enchantments-1.jar",
@@ -35,6 +37,8 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "dense-flowers-0.1.1-mc1.21.0.jar",
             "disenchanter-0.1.10+1.21.jar",
             "disenchanting_table-merged-1.21-3.0.2.jar",
+            "DistantHorizons-2.2.1-a-1.21.1-neo-fabric.jar",
+            "do_a_barrel_roll-fabric-3.7.3+1.21.jar",
             "dragonkind-evolved-1.5.2.jar",
             "dungeons-and-taverns-end-castle-standalone-v1-fabric.jar",
             "dungeons-and-taverns-pillager-outpost-overhaul-v2.2-1.21-fabric.jar",
@@ -73,7 +77,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "inventory-tabs-1.3.3+1.21.jar",
             "InventoryProfilesNext-fabric-1.21-2.0.4.jar",
             "InvMove-1.21-0.8.8-Fabric.jar",
-            "iris-1.7.3+mc1.21.jar",
+            "iris-fabric-1.8.8+mc1.21.1.jar",
             "jamlib-fabric-1.0.11+1.21.jar",
             "jamlib-fabric-1.0.9+1.21.jar",
             "jei-1.21-fabric-19.8.2.99.jar",
@@ -101,7 +105,6 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "NE-1.21-1.9.2.jar",
             "neoenchant-5.6.0.jar",
             "netherwardblock-1.21.1-6-fabric.jar",
-            "nvidium-0.2.9-beta.jar",
             "OkZoomer-Fabric-9.2.0-1.21-fabric.jar",
             "our-villager-discounts-1.21+build.0-fabric.jar",
             "owo-lib-0.12.10+1.21.jar",
@@ -121,8 +124,8 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "sharpness6-1.21-2.jar",
             "shifting-wares-2.2.2+1.21.jar",
             "ships-3.0.3-1.21.jar",
-            "sodium-extra-0.5.7+mc1.21.jar",
-            "sodium-fabric-0.5.11+mc1.21.jar",
+            "sodium-extra-fabric-0.6.0+mc1.21.1.jar",
+            "sodium-fabric-0.6.9+mc1.21.1.jar",
             "soulbound-fabric-1.0.0-fix+1.21.jar",
             "stack-to-nearby-chests-mc1.21-0.5.8.jar",
             "stopdropnroll-fabric-1.0.0.jar",
@@ -131,6 +134,7 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "TaxFreeLevels-1.3.12-fabric-1.20.5.jar",
             "tcdcommons-3.12.3+fabric-1.21.jar",
             "telekinesis-3.0.2-1.21.jar",
+            "tl_skin_cape_fabric_1.20.2_1.21-1.35.jar",
             "tradablepotions-1.0.1-1.21.1.jar",
             "TradeEnchantmentDisplay-fabric-1.0.1+1.21.jar",
             "TradingPost-v21.0.2-1.21-Fabric.jar",
@@ -150,6 +154,15 @@ $ModsList = "adorabuild-structures-2.7.0-fabric-1.21.1.jar",
             "yggdrasil-structure-1.4.0.jar",
             "zero-times-infinity-1.0.0.jar"
 
+$ShaderPacksList =  "ComplementaryReimagined-main.zip",
+                "photon-main.zip",
+                "Pixel-Perfect-B-main.zip",
+                "Radiance-main.zip",
+                "rethinking-voxels-singlesample-softshadows-v2.zip",
+                "Shrimple-main.zip",
+                "Solas-Shader-main.zip",
+                "Stracciatella-main.zip"
+
 $RemoveListMods = "fabric-api-0.100.4+1.21.jar", 
                   "nooks_and_crannies-1.0.0.jar", 
                   "enchantips-1.4.0.jar", 
@@ -157,7 +170,11 @@ $RemoveListMods = "fabric-api-0.100.4+1.21.jar",
                   "HopoBetterRuinedPortals-[1.21]-1.4.3.jar",
                   "fabric_medieval_buildings-1.0.2-1.21.jar",
                   "Philips-Ruins1.21-1.3.jar",
-                  "Communism-1.1.1.jar"
+                  "Communism-1.1.1.jar",
+                  "sodium-extra-0.5.7+mc1.21.jar",
+                  "sodium-fabric-0.5.11+mc1.21.jar",
+                  "nvidium-0.2.9-beta.jar",
+                  "iris-1.7.3+mc1.21.jar"
 
 $RemoveListConfigs = "dynamiclights.json","sharpness6.json","fallingtree.json"
 
@@ -221,5 +238,7 @@ foreach($config in $RemoveListConfigs){ RemoveIfRequired -FileName $($ConfigsDir
 
 foreach($mod in $ModsList){ DownloadIfRequired -FileName $($ModsDir+$mod) }
 foreach($config in $ConfigList){ DownloadIfRequired -FileName $($ConfigsDir+$config) }
+
+foreach($shader in $ShaderPacksList){ DownloadIfRequired -FileName $($ShadersDir+$shader) }
 
 Read-Host -Prompt "Press Enter to exit (Вы восхитительны)"
